@@ -1,0 +1,51 @@
+<div class="flex justify-center pt-20 pb-20">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <figure>
+      <img src="assets/Images/pokemons.jpg" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+      <div class="space-y-5">
+        <Label class="flex justify-center">Search Your Pokemon</Label>
+        <input
+          type="text"
+          placeholder="Type here"
+          class="input input-bordered input-primary w-full max-w-xs"
+          #pokeInput
+        />
+        <div class="flex justify-center">
+          <button class="btn btn-primary" (click)="searchPoke(pokeInput.value)">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hero min-h-screen bg-base-200" *ngIf="PokeData">
+  <div class="hero-content flex-col lg:flex-row">
+    <img
+      src="assets/Images/pokemons.jpg"
+      class="max-w-sm rounded-lg shadow-2xl"
+    />
+    <div>
+      <h1 class="text-5xl font-bold">{{ PokeData.name }}</h1>
+      <p class="py-6">height:{{ PokeData.weight }}</p>
+      <p class="py-6">weight:{{ PokeData.height }}</p>
+      <p class="py-6">Abilities:{{ PokeData.abilities }}</p>
+      <p class="py-6">Moves:{{ PokeData.moves }}</p>
+      <label for="my_modal_6" class="btn">open modal</label>
+      <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+      <div class="modal" role="dialog">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg">Hello!</h3>
+          <p class="py-4">
+            Umarım yolda yürürken {{ PokeData.name }} bulursun!
+          </p>
+          <div class="modal-action">
+            <label for="my_modal_6" class="btn">Close!</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
